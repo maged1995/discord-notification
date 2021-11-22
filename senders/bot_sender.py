@@ -23,5 +23,5 @@ class BotSender:
     async def sendMessage(self, recipients):
         pass
 
-    async def logout(self):
-        await self.bot.logout()
+    async def close(self):
+        await self.bot.close()
