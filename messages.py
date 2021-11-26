@@ -1,8 +1,9 @@
+import os
+
+project = os.getenv('CIRCLE_PROJECT_REPONAME')
+build_number = os.getenv('CIRCLE_BUILD_NUM')
 def ci_failure_message():
-    project = 'project'
-    build_number = 120
-    job_name = 'job'
-    
+    job_name = os.getenv('CIRCLE_JOB')
     return {
         "description": f'''Project: `{project}`\nPipeline #{build_number} Has Failed at Job `{job_name}`.''',
         "title": 'Failure',
@@ -11,9 +12,6 @@ def ci_failure_message():
     }
 
 def ci_success_message():
-    project = 'project'
-    build_number = 120
-
     return {
         "description": f'''Project: `{project}`\nPipeline #{build_number} Has Succeeded''',
         "title": 'Success',
